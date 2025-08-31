@@ -1,0 +1,11 @@
+registry = {}
+
+def register(name):
+    def wrapper(func):
+        registry[name] = func
+        return func
+    return wrapper
+
+@register("echo")
+def echo(x):
+    return {"echo": x}
